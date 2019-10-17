@@ -26,21 +26,17 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-2c7a4e0fe0ec355205b9.js"
+    "url": "webpack-runtime-4d1541efe7782da5f739.js"
   },
   {
-    "url": "app-e93586473bdb526a1efa.js"
+    "url": "app-3089d51e93941a307422.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-dd51aa598bb9f1d681e2.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "b48e5377236225f0d07211aa90ed2595"
-  },
-  {
-    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "6d4810778469ba38dea84860365fde45"
+    "revision": "e5a715cab2fa035e00296a511f502c6a"
   },
   {
     "url": "manifest.webmanifest",
@@ -66,7 +62,7 @@ const navigationRoute = new workbox.routing.NavigationRoute(({ event }) => {
   return idbKeyval.get(WHITELIST_KEY).then((customWhitelist = []) => {
     // Respond with the offline shell if we match the custom whitelist
     if (customWhitelist.includes(pathname)) {
-      const offlineShell = `/BeerpongWebclient/offline-plugin-app-shell-fallback/index.html`
+      const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
       const cacheName = workbox.core.cacheNames.precache
 
       return caches.match(offlineShell, { cacheName }).then(cachedResponse => {
@@ -138,7 +134,7 @@ const messageApi = {
 
     pathnames = pathnames.map(({ pathname, includesPrefix }) => {
       if (!includesPrefix) {
-        return `/BeerpongWebclient${pathname}`
+        return `${pathname}`
       } else {
         return pathname
       }
